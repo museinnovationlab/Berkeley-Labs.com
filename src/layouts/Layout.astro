@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Berkeley Labs — We teach machines new tricks',
+  description = 'Berkeley Labs is an independent, AI-forward studio in the Pacific Northwest building thoughtful apps and creative projects at the intersection of behavioral science and exceptional design. Curious. Loyal. Relentless.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/brand/logo-primary.png" />
+    <meta name="theme-color" content="#EADDCB" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="noise-bg">
+    <!-- Nav -->
+    <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+      <nav class="max-w-6xl mx-auto px-5 sm:px-6 py-3.5 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-2.5 group">
+          <img src="/brand/parts/dog-head.png" alt="" class="h-9 w-9 object-contain group-hover:-rotate-6 transition-transform" />
+          <span class="font-display font-bold text-ink text-[15px] tracking-tight">Berkeley&nbsp;Labs</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="nav-link text-sm">About</a>
+          <a href="#values" class="nav-link text-sm">Ethos</a>
+          <a href="#work" class="nav-link text-sm">Work</a>
+          <a href="#team" class="nav-link text-sm">Team</a>
+          <a href="#contact" class="btn btn-blue text-sm px-5 py-2">Say hello</a>
+        </div>
+        <button id="menu-btn" class="md:hidden text-blue-800 p-2" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden mx-4 mb-2 rounded-2xl px-6 py-5 bg-paper/95 backdrop-blur-md border border-blue-300/40 shadow-xl">
+        <div class="flex flex-col gap-4">
+          <a href="#about" class="nav-link text-base menu-item">About</a>
+          <a href="#values" class="nav-link text-base menu-item">Ethos</a>
+          <a href="#work" class="nav-link text-base menu-item">Work</a>
+          <a href="#team" class="nav-link text-base menu-item">Team</a>
+          <a href="#contact" class="nav-link text-base menu-item">Say hello</a>
+        </div>
+      </div>
+    </header>
+
+    <slot />
+
+    <script>
+      // Sticky nav styling
+      const nav = document.getElementById('nav');
+      const onScroll = () => {
+        if (window.scrollY > 16) {
+          nav?.classList.add('bg-paper/85','backdrop-blur-md','shadow-[0_2px_20px_-8px_rgba(20,58,102,0.25)]');
+        } else {
+          nav?.classList.remove('bg-paper/85','backdrop-blur-md','shadow-[0_2px_20px_-8px_rgba(20,58,102,0.25)]');
+        }
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Mobile menu
+      const menu = document.getElementById('mobile-menu');
+      document.getElementById('menu-btn')?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+      document.querySelectorAll('.menu-item').forEach(el =>
+        el.addEventListener('click', () => menu?.classList.add('hidden')));
+
+      // Reveal on scroll
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+        .forEach((el) => io.observe(el));
+
+      // Paw scroll progress
+      const dots = document.querySelectorAll('.paw-dot');
+      const progress = () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        const p = max > 0 ? window.scrollY / max : 0;
+        const active = Math.round(p * (dots.length - 1));
+        dots.forEach((d, i) => d.classList.toggle('active', i <= active));
+      };
+      progress();
+      window.addEventListener('scroll', progress, { passive: true });
+    </script>
+  </body>
+</html>

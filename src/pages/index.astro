@@ -1,0 +1,296 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+  {
+    name: 'Curious',
+    icon: '/brand/parts/light/ill-thinking.png',
+    copy: "We chase the question behind the question. Every product starts with a sniff test: is this a problem worth solving, or just a shiny squirrel?",
+  },
+  {
+    name: 'Loyal',
+    icon: '/brand/parts/light/dog-head.png',
+    copy: "We build for the long walk, not the quick fetch. Our users get our undivided attention — and software that earns its place on the home screen.",
+  },
+  {
+    name: 'Relentless',
+    icon: '/brand/parts/light/paw.png',
+    copy: "Once we're on the trail, we don't drop the bone. We polish until it's right, then polish a little more, because 'pretty good' is for other studios.",
+  },
+];
+
+const steps = [
+  { n: '01', icon: '/brand/parts/ill-microscope.png', title: 'Sniff it out', copy: 'We dig into a real, specific problem until we understand it better than anyone — behavioral science, not guesswork.' },
+  { n: '02', icon: '/brand/parts/ill-writing.png', title: 'Sketch & shape', copy: 'Design that respects your time and your eyes. We sweat the details others leave on the floor.' },
+  { n: '03', icon: '/brand/parts/ill-laptop.png', title: 'Teach it tricks', copy: 'We put modern AI to work where it genuinely helps — and nowhere it doesn’t. No buzzword theatre.' },
+  { n: '04', icon: '/brand/parts/ill-pointing.png', title: 'Ship & iterate', copy: 'We launch, listen, and keep refining. The best products get smarter the more you use them.' },
+];
+
+const marquee = ['Curious', 'Loyal', 'Relentless', 'AI-Forward', 'Built with craft', 'Pacific Northwest', 'Good dogs only', 'Behavioral science', 'Design that doesn’t bark'];
+---
+
+<Layout>
+  <span id="top"></span>
+
+  <!-- Paw scroll progress -->
+  <div class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-3.5">
+    {Array.from({ length: 6 }).map(() => (
+      <img src="/brand/parts/blue/paw.png" alt="" class="paw-dot w-5 h-5 object-contain" />
+    ))}
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+    <!-- soft background blobs -->
+    <div class="absolute -top-24 -right-24 w-[36rem] h-[36rem] rounded-full bg-blue-100/50 blur-3xl"></div>
+    <div class="absolute bottom-0 -left-32 w-[30rem] h-[30rem] rounded-full bg-coral/10 blur-3xl"></div>
+    <img src="/brand/parts/paw.png" alt="" class="absolute top-[22%] left-[8%] w-10 opacity-20 float-y hidden sm:block" />
+    <img src="/brand/parts/books.png" alt="" class="absolute bottom-[14%] right-[10%] w-24 opacity-25 float-y-slow hidden md:block" />
+
+    <div class="relative max-w-6xl mx-auto px-5 sm:px-6 grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-8 items-center w-full">
+      <div>
+        <div class="reveal eyebrow text-blue-600 mb-5 flex items-center gap-2">
+          <span class="inline-block w-8 h-px bg-coral"></span>
+          Independent studio · Pacific Northwest
+        </div>
+        <h1 class="reveal headline text-ink text-[3.1rem] sm:text-7xl md:text-[5rem] leading-[0.98] mb-6" style="transition-delay:.05s">
+          We teach<br />machines<br />
+          <span class="text-blue-800 underline-marker">new tricks.</span>
+        </h1>
+        <p class="reveal text-lg sm:text-xl text-ink/70 max-w-md mb-9 leading-relaxed" style="transition-delay:.12s">
+          Berkeley&nbsp;Labs is an AI-forward studio building thoughtful apps and creative projects —
+          with the curiosity of a dog who just heard the word <em class="text-blue-800 not-italic font-semibold">walk</em>.
+        </p>
+        <div class="reveal flex flex-wrap items-center gap-3.5" style="transition-delay:.18s">
+          <a href="#work" class="btn btn-blue px-7 py-3.5 text-[15px]">
+            See the pack
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost px-7 py-3.5 text-[15px]">Start a project</a>
+        </div>
+      </div>
+
+      <div class="reveal-scale relative flex justify-center md:justify-end" style="transition-delay:.1s">
+        <div class="relative">
+          <div class="absolute inset-0 rounded-full bg-paper-light shadow-[0_40px_80px_-30px_rgba(20,58,102,0.4)] scale-95"></div>
+          <img src="/brand/logo-primary.png" alt="Berkeley Labs — a friendly Labrador with a stack of books"
+               class="relative w-72 sm:w-96 md:w-[26rem] object-contain drop-shadow-sm" />
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="absolute bottom-7 left-1/2 -translate-x-1/2 text-blue-600/60 hover:text-blue-800 transition-colors flex flex-col items-center gap-1.5 group">
+      <span class="eyebrow text-[0.6rem]">Scroll</span>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="group-hover:translate-y-1 transition-transform"><path d="M9 3v12M4 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-wrap relative py-5 bg-blue-800 overflow-hidden select-none">
+    <div class="marquee-track items-center">
+      {[...marquee, ...marquee].map((w) => (
+        <div class="flex items-center">
+          <span class="font-display font-medium text-paper/90 text-lg px-6 whitespace-nowrap">{w}</span>
+          <img src="/brand/parts/light/paw.png" alt="" class="w-4 h-4 opacity-60" />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="relative py-24 sm:py-32 px-5 sm:px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div class="reveal-left order-2 md:order-1 relative">
+        <div class="absolute -inset-6 bg-blue-100/40 rounded-[2.5rem] -rotate-2"></div>
+        <div class="relative bg-paper-light rounded-[2rem] p-10 sm:p-14 border border-blue-300/30 shadow-sm">
+          <img src="/brand/parts/ill-thinking.png" alt="A thoughtful Labrador with a bright idea" class="w-full max-w-xs mx-auto" />
+        </div>
+        <img src="/brand/parts/paw.png" alt="" class="absolute -bottom-5 -right-3 w-12 opacity-30 wag" />
+      </div>
+
+      <div class="reveal-right order-1 md:order-2">
+        <div class="eyebrow text-coral mb-4">Who we are</div>
+        <h2 class="headline text-ink text-4xl sm:text-5xl mb-6">A small studio<br />with a <span class="text-blue-800">big nose</span> for good ideas.</h2>
+        <p class="text-lg text-ink/70 leading-relaxed mb-5">
+          Berkeley&nbsp;Labs is a lean, founder-led studio in the Pacific Northwest. We build at the
+          intersection of <span class="text-blue-800 font-semibold">behavioral science, modern AI, and design that doesn’t make you squint</span>.
+        </p>
+        <p class="text-lg text-ink/70 leading-relaxed">
+          We keep the team small and the standards high — more whippet than St.&nbsp;Bernard. Every product
+          begins with a real problem and only ships once it’s genuinely good. No filler, no fetch-quests, no fluff.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-x-10 gap-y-4">
+          <div>
+            <div class="font-display font-bold text-3xl text-blue-800">100%</div>
+            <div class="text-sm text-ink/55">independent &amp; founder-led</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-3xl text-blue-800">AI-forward</div>
+            <div class="text-sm text-ink/55">but never AI-for-show</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-3xl text-blue-800">0</div>
+            <div class="text-sm text-ink/55">products we wouldn’t use ourselves</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUES (dark band) ============ -->
+  <section id="values" class="relative py-24 sm:py-32 px-5 sm:px-6 bg-blue-800 overflow-hidden">
+    <img src="/brand/parts/light/submark-circle.png" alt="" class="absolute -right-16 -top-16 w-72 opacity-[0.07]" />
+    <img src="/brand/parts/light/books.png" alt="" class="absolute left-6 bottom-6 w-24 opacity-10 hidden sm:block" />
+    <div class="max-w-6xl mx-auto relative">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="reveal eyebrow text-blue-100 mb-4">Our ethos</div>
+        <h2 class="reveal headline text-paper text-4xl sm:text-5xl mb-5">Curious. Loyal. Relentless.</h2>
+        <p class="reveal text-blue-100/80 text-lg">Three words on the wall. The whole personality of the place.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {values.map((v, i) => (
+          <div class="reveal value-card rounded-3xl bg-blue-900/40 border border-blue-100/15 p-9 text-center backdrop-blur-sm" style={`transition-delay:${i * 0.1}s`}>
+            <div class="h-28 flex items-center justify-center mb-5">
+              <img src={v.icon} alt="" class="max-h-28 object-contain" />
+            </div>
+            <h3 class="font-display font-bold text-2xl text-paper mb-3">{v.name}</h3>
+            <p class="text-blue-100/75 leading-relaxed text-[15px]">{v.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK / PORTFOLIO ============ -->
+  <section id="work" class="relative py-24 sm:py-32 px-5 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+        <div>
+          <div class="reveal eyebrow text-coral mb-4">The work</div>
+          <h2 class="reveal headline text-ink text-4xl sm:text-5xl">Things we’ve fetched.</h2>
+        </div>
+        <p class="reveal text-ink/60 max-w-sm sm:text-right">A growing pack of products built in-house — each one a problem we couldn’t stop chewing on.</p>
+      </div>
+
+      <!-- Featured: Kiron -->
+      <a href="https://trykiron.com" target="_blank" rel="noopener"
+         class="reveal-scale project-card group block rounded-[2rem] overflow-hidden border border-blue-300/40 bg-paper-light">
+        <div class="grid md:grid-cols-2">
+          <div class="p-10 sm:p-14 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="eyebrow text-blue-600">Featured project</span>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-coral/15 text-coral">Live on iOS &amp; Android</span>
+            </div>
+            <h3 class="font-display font-bold text-5xl text-ink mb-4">Kiron</h3>
+            <p class="text-lg text-ink/70 leading-relaxed mb-6">
+              AI got great at writing workout plans — then left you to track them yourself. Kiron
+              <span class="text-blue-800 font-semibold"> fetches your AI-generated plan</span> and turns it into a
+              trainer that actually follows you to the gym. No templates, no setup, just training.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-8">
+              {['AI fitness', 'Mobile', 'Behavioral design'].map((t) => (
+                <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-blue-100/60 text-blue-800">{t}</span>
+              ))}
+            </div>
+            <span class="btn btn-blue px-6 py-3 text-sm w-fit group-hover:gap-3">
+              Visit trykiron.com
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div class="relative bg-blue-800 flex items-center justify-center p-12 overflow-hidden min-h-[18rem]">
+            <img src="/brand/parts/light/submark-circle.png" alt="" class="absolute inset-0 m-auto w-80 opacity-[0.08]" />
+            <img src="/brand/parts/light/ill-laptop.png" alt="An industrious Labrador hard at work" class="relative w-64 group-hover:scale-105 transition-transform duration-500" />
+          </div>
+        </div>
+      </a>
+
+      <!-- More coming -->
+      <div class="reveal mt-6 rounded-[2rem] border-2 border-dashed border-blue-300/50 p-10 sm:p-12 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+        <img src="/brand/parts/ill-microscope.png" alt="" class="w-24 opacity-80" />
+        <div class="flex-1">
+          <h3 class="font-display font-bold text-2xl text-ink mb-2">More tricks in training.</h3>
+          <p class="text-ink/65 leading-relaxed">We’ve got new products in the oven (and a few buried in the yard). This portfolio grows as we ship — check back, or get on the list.</p>
+        </div>
+        <a href="#contact" class="btn btn-ghost px-6 py-3 text-sm whitespace-nowrap">Get notified</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPROACH (soft blue band) ============ -->
+  <section class="relative py-24 sm:py-32 px-5 sm:px-6 bg-blue-100/50 overflow-hidden">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="reveal eyebrow text-blue-600 mb-4">How we work</div>
+        <h2 class="reveal headline text-ink text-4xl sm:text-5xl mb-5">From scent to ship.</h2>
+        <p class="reveal text-ink/65 text-lg">Our process, in four good walks.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map((s, i) => (
+          <div class="reveal relative bg-paper rounded-3xl p-7 border border-blue-300/30 shadow-sm" style={`transition-delay:${i * 0.08}s`}>
+            <div class="font-display font-bold text-blue-300 text-5xl mb-3">{s.n}</div>
+            <div class="h-24 flex items-end mb-4"><img src={s.icon} alt="" class="max-h-24 object-contain" /></div>
+            <h3 class="font-display font-bold text-xl text-ink mb-2">{s.title}</h3>
+            <p class="text-ink/65 text-[15px] leading-relaxed">{s.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section id="team" class="relative py-24 sm:py-32 px-5 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <img src="/brand/parts/dog-head.png" alt="" class="reveal-scale w-20 mx-auto mb-7 opacity-90" />
+      <div class="reveal eyebrow text-coral mb-4">The pack</div>
+      <h2 class="reveal headline text-ink text-4xl sm:text-5xl mb-7">A lean pack.<br />Allergic to headcount.*</h2>
+      <p class="reveal text-lg text-ink/70 leading-relaxed max-w-2xl mx-auto mb-4">
+        Berkeley&nbsp;Labs was founded by experienced software and product builders with backgrounds across
+        consumer mobile, AI, and product design. We move fast and keep a small footprint — focused on craft, not crowd.
+      </p>
+      <p class="reveal text-ink/55 leading-relaxed max-w-xl mx-auto">
+        We’ll introduce the rest of the litter as we grow.
+      </p>
+      <p class="reveal text-sm text-ink/40 mt-8 italic">*Not actually allergic. We’d love a full house. We just hire slowly.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT (dark band) ============ -->
+  <section id="contact" class="relative py-24 sm:py-32 px-5 sm:px-6 bg-blue-800 overflow-hidden">
+    <img src="/brand/parts/light/paw.png" alt="" class="absolute top-10 left-[12%] w-10 opacity-10 float-y" />
+    <img src="/brand/parts/light/paw.png" alt="" class="absolute bottom-16 right-[16%] w-8 opacity-10 float-y-slow" />
+    <div class="max-w-3xl mx-auto text-center relative">
+      <img src="/brand/parts/light/ill-pointing.png" alt="A Labrador pointing things out" class="reveal-scale w-40 mx-auto mb-8" />
+      <div class="reveal eyebrow text-blue-100 mb-4">Say hello</div>
+      <h2 class="reveal headline text-paper text-4xl sm:text-6xl mb-6">Let’s build<br />something worth fetching.</h2>
+      <p class="reveal text-blue-100/80 text-lg mb-10 max-w-xl mx-auto">
+        Want to talk shop, pitch an idea, or just say hi? We’re all ears — the big floppy kind.
+      </p>
+      <div class="reveal flex flex-wrap items-center justify-center gap-4">
+        <a href="mailto:info@berkeley-labs.com" class="btn btn-cream px-8 py-4 text-base">
+          info@berkeley-labs.com
+        </a>
+        <a href="https://trykiron.com" target="_blank" rel="noopener" class="btn px-8 py-4 text-base border border-blue-100/40 text-paper hover:bg-blue-900/50 transition">
+          Try Kiron
+        </a>
+      </div>
+      <p class="reveal text-blue-100/50 text-sm mt-10">522 W Riverside Ave, Spokane, WA 99201</p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-blue-900 px-5 sm:px-6 py-12">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="/brand/parts/light/dog-head.png" alt="" class="w-8 opacity-90" />
+        <span class="font-display font-semibold text-paper/90">Berkeley Labs LLC</span>
+      </div>
+      <p class="text-blue-100/50 text-sm text-center font-display">Curious. Loyal. Relentless.</p>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="#work" class="text-blue-100/60 hover:text-paper transition">Work</a>
+        <a href="#contact" class="text-blue-100/60 hover:text-paper transition">Contact</a>
+        <a href="mailto:info@berkeley-labs.com" class="text-blue-100/60 hover:text-paper transition">Email</a>
+      </div>
+    </div>
+    <p class="text-center text-blue-100/30 text-xs mt-8">&copy; {new Date().getFullYear()} Berkeley Labs LLC · Spokane, WA · Made with curiosity (and a few treats).</p>
+  </footer>
+</Layout>
