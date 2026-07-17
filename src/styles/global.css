@@ -185,3 +185,86 @@ body {
   background-size: 22px 22px;
   pointer-events:none;
 }
+
+/* ---------- Long-form article body ---------- */
+.article {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: rgba(20, 34, 47, 0.85);
+}
+.article > * + * { margin-top: 1.5rem; }
+.article p { margin: 0 0 1.5rem; }
+.article h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: #14222F;
+  font-size: 1.9rem;
+  margin: 3rem 0 1rem;
+}
+.article h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  color: #14222F;
+  font-size: 1.4rem;
+  margin: 2.25rem 0 0.75rem;
+}
+.article a {
+  color: #1D4E89;
+  text-decoration: underline;
+  text-decoration-color: rgba(29, 78, 137, 0.35);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+.article a:hover { text-decoration-color: #1D4E89; }
+.article strong { font-weight: 600; color: #14222F; }
+.article ul, .article ol { margin: 0 0 1.5rem; padding-left: 1.4rem; }
+.article li { margin: 0.4rem 0; }
+.article ul li { list-style: disc; }
+.article ol li { list-style: decimal; }
+.article li::marker { color: #557DA5; }
+.article blockquote {
+  margin: 2rem 0;
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  border-left: 3px solid #E07856;
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: rgba(20, 34, 47, 0.78);
+}
+.article blockquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-style: normal;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(20, 34, 47, 0.55);
+}
+.article hr {
+  border: 0;
+  border-top: 1px solid rgba(29, 78, 137, 0.18);
+  margin: 3rem 0;
+}
+.article figure { margin: 2rem 0; }
+.article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: rgba(29, 78, 137, 0.08);
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+}
+/* Playful dog-themed sign-off that closes every article */
+.article .dog-sign-off {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(224, 120, 86, 0.5);
+  font-style: italic;
+  color: rgba(20, 34, 47, 0.62);
+  font-size: 1.05rem;
+}

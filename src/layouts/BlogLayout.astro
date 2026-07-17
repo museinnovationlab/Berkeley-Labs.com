@@ -1,0 +1,115 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;          // SEO <title>
+  description: string;     // meta description + dek fallback
+  headline: string;        // on-page H1
+  dek?: string;            // sub-headline shown under the H1
+  slug: string;            // e.g. 'mvp-is-dead'
+  publishISO: string;      // '2026-07-17'
+  publishDisplay: string;  // 'July 17, 2026'
+  readingTime: string;     // '7 min read'
+  image?: string;          // OG image path
+}
+
+const {
+  title,
+  description,
+  headline,
+  dek,
+  slug,
+  publishISO,
+  publishDisplay,
+  readingTime,
+  image = '/brand/logo-primary.png',
+} = Astro.props;
+
+const SITE = 'https://berkeley-labs.com';
+const canonical = `${SITE}/blog/${slug}/`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: headline,
+  description: description,
+  datePublished: publishISO,
+  dateModified: publishISO,
+  author: { '@type': 'Organization', name: 'Berkeley Labs', url: SITE },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Berkeley Labs',
+    logo: { '@type': 'ImageObject', url: `${SITE}/brand/logo-primary.png` },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  image: image.startsWith('http') ? image : `${SITE}${image}`,
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  image={image}
+  navBase="/"
+  jsonLd={jsonLd}
+>
+  <main class="pt-28 sm:pt-32 pb-8 px-5 sm:px-6">
+    <div class="max-w-2xl mx-auto">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 transition-colors mb-8">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All articles
+      </a>
+      <div class="eyebrow text-coral mb-4">Berkeley Labs Journal</div>
+      <h1 class="headline text-ink text-4xl sm:text-5xl mb-5">{headline}</h1>
+      {dek && <p class="text-xl text-ink/65 leading-relaxed mb-6">{dek}</p>}
+      <div class="flex items-center gap-3 text-sm text-ink/50 border-b border-blue-300/30 pb-8">
+        <time datetime={publishISO}>{publishDisplay}</time>
+        <span class="w-1 h-1 rounded-full bg-ink/30"></span>
+        <span>{readingTime}</span>
+      </div>
+    </div>
+  </main>
+
+  <article class="article max-w-2xl mx-auto px-5 sm:px-6 pb-16">
+    <slot />
+  </article>
+
+  <!-- Closing studio card -->
+  <div class="max-w-2xl mx-auto px-5 sm:px-6 pb-24">
+    <div class="rounded-3xl bg-blue-800 text-paper p-8 sm:p-10 relative overflow-hidden">
+      <img src="/brand/parts/light/submark-circle.png" alt="" class="absolute -right-8 -top-8 w-40 opacity-[0.08]" />
+      <div class="relative">
+        <div class="eyebrow text-blue-100 mb-3">Berkeley Labs</div>
+        <p class="font-display text-2xl font-semibold mb-3">We build the things we write about.</p>
+        <p class="text-blue-100/80 leading-relaxed mb-6">
+          We're an independent, AI-forward studio making thoughtful apps — like
+          <a href="https://trykiron.com" target="_blank" rel="noopener" class="text-paper underline underline-offset-2">Kiron</a>
+          (AI training) and
+          <a href="https://trybside.com" target="_blank" rel="noopener" class="text-paper underline underline-offset-2">B-Side</a>
+          (music discovery). Curious. Loyal. Relentless.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/#work" class="btn btn-cream px-6 py-3 text-sm">See our work</a>
+          <a href="/blog/" class="btn px-6 py-3 text-sm border border-blue-100/40 text-paper hover:bg-blue-900/50 transition">More articles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compact footer -->
+  <footer class="bg-blue-900 px-5 sm:px-6 py-10">
+    <div class="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/brand/logo-light.png" alt="Berkeley Labs" class="w-10 opacity-95" />
+        <span class="font-display font-semibold text-paper/90">Berkeley Labs</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-blue-100/60 hover:text-paper transition">Home</a>
+        <a href="/blog/" class="text-blue-100/60 hover:text-paper transition">Blog</a>
+        <a href="/#contact" class="text-blue-100/60 hover:text-paper transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+</Layout>

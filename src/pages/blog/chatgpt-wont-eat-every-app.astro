@@ -1,0 +1,171 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+---
+
+<BlogLayout
+  title="ChatGPT Won't Eat Every App: The Case for Building Anyway"
+  description="Everyone assumes the big AI labs will absorb every product. But chat is the wrong interface for most jobs, ~99% of people won't build their own tools, and value is accruing at the application layer. The case for building anyway."
+  headline="No, ChatGPT isn't going to eat your app. Neither is Claude."
+  dek="The scariest question in tech right now is “but couldn't OpenAI just build this?” For most products, the honest answer is still no — and that leaves far more room for builders than the doomers think."
+  slug="chatgpt-wont-eat-every-app"
+  publishISO="2026-07-17"
+  publishDisplay="July 17, 2026"
+  readingTime="8 min read"
+>
+  <p>
+    There's a single sentence that has killed more side projects and stalled more funding rounds than any
+    actual competitor ever has:
+  </p>
+
+  <blockquote>“But couldn't OpenAI just build this?”</blockquote>
+
+  <p>
+    It's a reasonable fear on its face. The big AI labs have the models, the talent, and the distribution.
+    So the logic goes: anything you build on top of them is a sandcastle, and the tide — GPT-6, the next
+    Claude, a new ChatGPT “app” — is coming in. Why build a product when the model that powers it could
+    swallow you as a feature?
+  </p>
+
+  <p>
+    Here's why that fear, for most products, is wrong. And why what's left after you clear it away is one of
+    the better opportunities in software.
+  </p>
+
+  <h2>The fear rests on two beliefs nobody checks</h2>
+
+  <p>
+    “The labs will absorb everything” only holds if two things are true: that the <strong>chatbot is the
+    universal interface</strong> for every job, and that <strong>eventually everyone just builds or prompts
+    their own tools.</strong> If both were true, the application layer really would be a rounding error on
+    the way to a few god-model monopolies.
+  </p>
+
+  <p>Both are wrong. Let's take them in turn.</p>
+
+  <h2>Belief #1: chat is the right interface. It isn't.</h2>
+
+  <p>
+    The chat box did not win because it's the best way to interact with software. It won because it was the
+    fastest thing to ship. As one widely-shared design essay put it:
+  </p>
+
+  <blockquote>
+    “The chat box isn't a UI paradigm. It's what shipped.”
+    <cite>— Adi Leviim, <a href="https://uxdesign.cc/the-chat-box-isnt-a-ui-paradigm-it-s-what-shipped-96e931d92769" target="_blank" rel="noopener">UX Collective</a></cite>
+  </blockquote>
+
+  <p>
+    Language models emit text; text boxes accept text; so the text box became the default AI interface. That
+    was a decision about build speed, not user outcomes. And for a huge share of real jobs, a blank prompt
+    box is <em>friction</em>, not magic. When you need speed, precision, or confidence, typing a paragraph
+    and hoping the model inferred what you meant is worse than pressing a button that does the known thing.
+    As <em>Forbes</em> framed it, whether ChatGPT replaces your favorite apps
+    <a href="https://www.forbes.com/councils/forbestechcouncil/2025/10/31/will-chatgpt-replace-your-favorite-apps-why-it-depends-on-ui-not-ai/" target="_blank" rel="noopener">depends on UI, not AI</a>.
+  </p>
+
+  <p>
+    A dedicated product encodes the expertise so the user doesn't have to supply it every time. A
+    general-purpose model can write you a workout, sure — if you re-explain your history, equipment,
+    injuries, goals, and last week's soreness in every session. A product built for that job already knows.
+    The interface <em>is</em> the value, and a chatbot throws that value away by making you rebuild context
+    from scratch each time you open it.
+  </p>
+
+  <h2>Belief #2: everyone will build their own. They won't.</h2>
+
+  <p>
+    The other half of the fear is that AI turns everyone into a builder, so who needs your product? History
+    is remarkably unkind to this idea. As Ivan Turkovic argues in
+    <a href="https://www.ivanturkovic.com/2026/02/14/average-people-will-not-build-software-with-ai/" target="_blank" rel="noopener">“No, Average People Will Not Build Their Own Software With AI,”</a>
+    every technology generation has promised that programming was about to become universal — COBOL, the
+    fourth-generation languages, Visual Basic, no-code — and every time it stayed a niche.
+  </p>
+
+  <p>
+    The reason isn't capability. It's desire. Most people do not want to design software. They want the job
+    done. Building something good — the flows, the edge cases, the hundred small taste decisions — is
+    <em>work</em>, and it's work the overwhelming majority of people neither enjoy nor want to own. The real
+    effect of AI, Turkovic notes, isn't that people build their own tools; it's that
+    <strong>the tools built for them get better, more personalized, and ship faster.</strong> That's not a
+    threat to people who make products. That's the job posting.
+  </p>
+
+  <h2>Where the value is actually going</h2>
+
+  <p>
+    The “labs eat everything” story assumes value flows to whoever owns the model. But that's not what the
+    people funding this stuff are seeing. On a16z's own stage, Martin Casado and Sarah Wang made the case
+    that value is accruing
+    <a href="https://a16z.com/podcast/where-value-will-accrue-in-ai-martin-casado-sarah-wang/" target="_blank" rel="noopener">across every layer of the stack — models, infrastructure, and applications</a>
+    — directly contradicting the earlier assumption that foundation-model companies would capture it all.
+  </p>
+
+  <p>
+    It makes sense once you say it plainly: intelligence is getting cheaper and more abundant every quarter.
+    The scarce, valuable things are everything <em>around</em> the intelligence — a UI shaped to one job, the
+    workflow, the earned trust, the taste, the distribution to people who will never open a terminal. Those
+    are exactly the places a general chatbot can't reach and a trillion-dollar lab won't bother to go.
+  </p>
+
+  <h2>The honest part: thin wrappers really do die</h2>
+
+  <p>
+    It would be dishonest to tell you nothing gets absorbed. Plenty does. If your “product” is a system
+    prompt and a text box sitting on top of someone else's model, then yes — you will get swallowed, either
+    by the lab or by the first user who realizes they can paste the prompt into ChatGPT themselves. Thin
+    wrappers are renting land, and the landlord is paying attention.
+  </p>
+
+  <p>
+    So the absorb-everything fear isn't wrong so much as it's a <strong>filter</strong>. It kills the lazy
+    version and spares the crafted one. The correct response isn't “nothing is safe” — it's “build something
+    that isn't a wrapper.”
+  </p>
+
+  <h2>So what do you actually do?</h2>
+
+  <ul>
+    <li>
+      <strong>Build a product, not a prompt.</strong> If a user could get 90% of your value by pasting your
+      system prompt into a chatbot, you haven't built anything yet. Go make the other 90%.
+    </li>
+    <li>
+      <strong>Pick a job where chat is the wrong shape.</strong> Anything that needs speed, repetition,
+      precision, or trust wants a real interface — not a conversation you restart every time.
+    </li>
+    <li>
+      <strong>Own the last mile the model can't.</strong> Workflow, proprietary data, the way it feels, and
+      distribution to people who don't live in an AI console.
+    </li>
+    <li>
+      <strong>Meet users where they already are.</strong> You will not retrain a few billion people into
+      software designers. Build the thing they'd rather just open — and, per
+      <a href="/blog/mvp-is-dead/">our take on the death of the MVP</a>, make it genuinely lovable while
+      you're at it.
+    </li>
+  </ul>
+
+  <h2>Why we bet on building products</h2>
+
+  <p>
+    We make standalone products on purpose, not chatbots. <a href="https://trykiron.com" target="_blank" rel="noopener">Kiron</a>
+    exists because nobody wants to prompt an AI mid-set — you want a trainer that already has your plan and
+    is counting your reps. <a href="https://trybside.com" target="_blank" rel="noopener">B-Side</a> exists
+    because nobody wants to interrogate a chatbot about what to listen to — you want five new albums waiting
+    Friday morning, each with a reason you'll like it. Could a frontier model technically do either? With
+    enough babysitting, probably. That's exactly the point: <strong>nobody wants to babysit.</strong> They
+    want the thing done well, in an app shaped for it.
+  </p>
+
+  <p>
+    The labs are going to keep making the underlying intelligence better and cheaper — which is fantastic
+    news, because we get to build on top of it. The opportunity was never in owning the model. It was in
+    knowing what to build with it, and having the taste to make it worth opening twice.
+  </p>
+
+  <p class="dog-sign-off">
+    Sure, a general-purpose model could probably fetch what our apps fetch — the way a Labrador could, in
+    theory, herd sheep. But you want the dog that was bred for the job, not the one improvising with great
+    enthusiasm and mixed results. We're very much bred for the job. 🐾
+  </p>
+</BlogLayout>

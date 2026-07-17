@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { posts } from '../../data/posts.js';
+
+const title = 'The Berkeley Labs Journal — notes on building in the AI era';
+const description =
+  'Essays from Berkeley Labs on building software in the AI era — the death of the MVP, why the big AI labs won’t absorb every product, and what it takes to make things people actually love.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'The Berkeley Labs Journal',
+  description,
+  url: 'https://berkeley-labs.com/blog/',
+  publisher: { '@type': 'Organization', name: 'Berkeley Labs', url: 'https://berkeley-labs.com' },
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical="https://berkeley-labs.com/blog/"
+  navBase="/"
+  jsonLd={jsonLd}
+>
+  <main class="pt-32 sm:pt-40 pb-24 px-5 sm:px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="eyebrow text-coral mb-4">The journal</div>
+      <h1 class="headline text-ink text-4xl sm:text-6xl mb-6">Notes from the workshop.</h1>
+      <p class="text-lg sm:text-xl text-ink/65 leading-relaxed max-w-2xl mb-14">
+        We build AI-forward apps for a living — so we spend a lot of time thinking about what’s
+        actually changing, and what isn’t. Honest, specific takes on making software people love.
+      </p>
+
+      <div class="flex flex-col gap-5">
+        {posts.map((p) => (
+          <a
+            href={`/blog/${p.slug}/`}
+            class="project-card group block rounded-3xl border border-blue-300/40 bg-paper-light p-8 sm:p-10"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100/60 text-blue-800">{p.tag}</span>
+              <span class="text-sm text-ink/45">{p.publishDisplay} · {p.readingTime}</span>
+            </div>
+            <h2 class="font-display font-semibold text-2xl sm:text-3xl text-ink leading-snug mb-3 group-hover:text-blue-800 transition-colors">
+              {p.title}
+            </h2>
+            <p class="text-ink/65 leading-relaxed mb-5">{p.dek}</p>
+            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 group-hover:gap-2.5 transition-all">
+              Read the article
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <!-- Compact footer -->
+  <footer class="bg-blue-900 px-5 sm:px-6 py-10">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/brand/logo-light.png" alt="Berkeley Labs" class="w-10 opacity-95" />
+        <span class="font-display font-semibold text-paper/90">Berkeley Labs</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-blue-100/60 hover:text-paper transition">Home</a>
+        <a href="/#work" class="text-blue-100/60 hover:text-paper transition">Work</a>
+        <a href="/#contact" class="text-blue-100/60 hover:text-paper transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
