@@ -5,7 +5,7 @@ stays consistent in voice, structure, SEO, and quality.
 
 ## Goal & guardrails
 - **Purpose:** SEO + thought leadership that earns trust and drives discovery of our apps
-  (Kiron, B-Side, whatever's next).
+  (Kiron — AI training; B-Side — music discovery; Bearing — health data in context; whatever's next).
 - **Quality over quantity.** Do NOT mass-produce. Google's "scaled content abuse" policy
   penalizes thin, low-differentiation bulk content at the *domain* level — a pile of
   filler could poison the whole site's ability to rank. Every article must be a POV only
