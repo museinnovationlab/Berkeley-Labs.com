@@ -41,8 +41,7 @@ const marquee = ['Curious', 'Loyal', 'Relentless', 'AI-Forward', 'Built with cra
 
   <!-- ============ HERO ============ -->
   <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
-    <!-- soft background blobs -->
-    <div class="absolute -top-24 -right-24 w-[36rem] h-[36rem] rounded-full bg-blue-100/50 blur-3xl"></div>
+    <!-- soft background blob (the blue halo lives with the logo below, so it stays centered at every width) -->
     <div class="absolute bottom-0 -left-32 w-[30rem] h-[30rem] rounded-full bg-coral/10 blur-3xl"></div>
     <img src="/brand/parts/paw.png" alt="" class="absolute top-[22%] left-[8%] w-10 opacity-20 float-y hidden sm:block" />
     <img src="/brand/parts/books.png" alt="" class="absolute bottom-[14%] right-[10%] w-24 opacity-25 float-y-slow hidden md:block" />
@@ -72,6 +71,8 @@ const marquee = ['Curious', 'Loyal', 'Relentless', 'AI-Forward', 'Built with cra
 
       <div class="reveal-scale relative flex justify-center md:justify-end" style="transition-delay:.1s">
         <div class="relative">
+          <!-- Blue halo: anchored to the logo (not the window corner) so it stays centered behind it at any screen size -->
+          <div class="absolute -inset-20 rounded-full bg-blue-100/60 blur-3xl"></div>
           <div class="absolute inset-0 rounded-full bg-paper-light shadow-[0_40px_80px_-30px_rgba(20,58,102,0.4)] scale-95"></div>
           <img src="/brand/logo-primary.png" alt="Berkeley Labs — a friendly Labrador with a stack of books"
                class="relative w-72 sm:w-96 md:w-[26rem] object-contain drop-shadow-sm" />
